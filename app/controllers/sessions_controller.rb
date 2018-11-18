@@ -1,10 +1,9 @@
 class SessionsController < ApplicationController
   def create
     remember_token = User.new_remember_token
-    @current_user = User.find_or_create_with_omniauth(request.env['omniauth.auth'],
-      remember_token)
-      cookies.permanent[:remember_token] = remember_token
-      redirect_to root_path, notice: 'ログインしました'
+    @current_user = User.find_or_create_with_omniauth(request.env['omniauth.auth'], remember_token)
+    cookies.permanent[:remember_token] = remember_token
+    redirect_to root_path, notice: 'ログインしました'
   end
 
   def destroy
@@ -15,6 +14,6 @@ class SessionsController < ApplicationController
   end
 
   def new
-    redirect_to root_path, if current_user.present?
+    redirect_to root_path if current_user.present?
   end
 end

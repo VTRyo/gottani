@@ -41,6 +41,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'twitter'
 # ツイッターアカウントでログインできるようにするため
 gem 'omniauth-twitter'
+gem 'omniauth'
 # デザインの手助けをするCSS
 gem 'bulma-rails', '~> 0.7.1'
 # Webアイコンフォント
